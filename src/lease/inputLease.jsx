@@ -1,7 +1,7 @@
 import React from "react";
 import { checkPropTypes } from "prop-types";
 
-class InputLease extends React.Component {
+class InputSelectLease extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -24,7 +24,7 @@ class InputLease extends React.Component {
       <div className="input-lease">
         <p className="input-title">{title}</p>
         <div className="input-wrapper">
-          {" " + unit + " "} <input id={id} className="lease-input" type="text" min='0' max={max} />
+          {" " + unit + " "} <input id={id} className="lease-input" type="text" min="0" max={max} />
         </div>
       </div>
     );
@@ -49,4 +49,17 @@ class InputLease extends React.Component {
   }
 }
 
-export default InputLease;
+InputSelectLease.propTypes = {
+  title: PropTypes.string,
+  id: PropTypes.string,
+  options: PropTypes.arrayOf(PropTypes.string),
+  defaultValue: PropTypes.string,
+};
+
+InputSelectLease.defaultProps = {
+  title: "",
+  id: "",
+  options: "",
+  defaultValue: "",
+};
+export default InputSelectLease;

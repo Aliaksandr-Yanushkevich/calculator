@@ -1,7 +1,7 @@
 import React from "react";
-import { render } from "react-dom";
+import PropTypes from "prop-types";
 
-class SelectLease extends React.Component {
+class InputNumberLease extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -12,9 +12,10 @@ class SelectLease extends React.Component {
 
   handleChange(value) {
     this.setState(() => ({
-      value: value,
+      value,
     }));
   }
+
   render() {
     const { title, id, min, max, step, defaultValue } = this.props;
     return (
@@ -29,14 +30,32 @@ class SelectLease extends React.Component {
             min={min}
             step={step}
             max={max}
-            onChange={e => {
-              console.log("changed!");
-              this.handleChange(e.target.value);
-            }}
+            // onChange={e => {
+            //   console.log("changed!");
+            //   this.handleChange(e.target.value);
+            // }}
           />
         </div>
       </div>
     );
   }
 }
-export default SelectLease;
+
+InputNumberLease.propTypes = {
+  title: PropTypes.string,
+  id: PropTypes.string,
+  min: PropTypes.number,
+  max: PropTypes.number,
+  step: PropTypes.number,
+  defaultValue: PropTypes.number,
+};
+
+InputNumberLease.defaultProps = {
+  title: "",
+  id: "",
+  min: "",
+  max: "",
+  step: "",
+  defaultValue: "",
+};
+export default InputNumberLease;

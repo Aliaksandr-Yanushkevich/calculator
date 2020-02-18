@@ -5,7 +5,7 @@ const HtmlWebpackPlugin = require('html-webpack-plugin');
 const BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPlugin;
 
 function NothingPlugin() {
-  this.apply = function() {};
+  this.apply = function () { };
 }
 
 const config = {
@@ -26,6 +26,9 @@ const config = {
       //   test: /\.(js|jsx)$/,
       //   exclude: /node_modules/,
       //   loader: 'eslint-loader',
+      //   options: {
+      //     fix: true
+      //   }
       // },
       {
         test: /\.(png|svg|jpg|gif)$/,
@@ -85,4 +88,9 @@ const config = {
   ],
 };
 
-module.exports = config;
+module.exports = (env, argv) => {
+  if (argv.mode === 'development') {
+    config.devtool = 'source-map';
+  }
+  return config;
+};
