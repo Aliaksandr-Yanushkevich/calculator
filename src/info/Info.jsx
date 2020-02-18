@@ -1,6 +1,6 @@
 import React from "react";
-import WrapperLease from "./WrapperLease";
-import WrapperLoan from "./WrapperLoan";
+import WrapperLease from "../WrapperLease";
+import WrapperLoan from "../WrapperLoan";
 
 class Info extends React.Component {
   constructor(props) {

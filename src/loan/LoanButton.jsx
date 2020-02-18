@@ -1,7 +1,7 @@
 import React from "react";
 import PropTypes from "prop-types";
 
-class Button extends React.Component {
+class LoanButton extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -20,10 +20,10 @@ class Button extends React.Component {
   }
 }
 
-Button.propTypes = {
+LoanButton.propTypes = {
   id: PropTypes.string.isRequired,
   className: PropTypes.string.isRequired,
   value: PropTypes.number.isRequired,
 };
 
-export default Button;
+export default LoanButton;

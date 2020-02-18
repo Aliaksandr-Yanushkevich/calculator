@@ -1,8 +1,8 @@
 import React from "react";
 import Tab from "./Tab";
-import Info from "./Info";
-import dealerData from "./dealerData";
-import DealerInfo from './DealerInfo'
+import Info from "./info/Info";
+import dealerData from "./info/dealerData";
+import DealerInfo from './info/DealerInfo'
 class Credit extends React.Component {
   constructor(props) {
     super(props);
