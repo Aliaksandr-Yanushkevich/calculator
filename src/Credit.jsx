@@ -1,22 +1,46 @@
 import React from "react";
 import Tab from "./Tab";
-import Info from "./info/Info";
+import CreditOptions from "./CreditOptions";
 import dealerData from "./info/dealerData";
-import DealerInfo from './info/DealerInfo'
+import DealerInfo from "./info/DealerInfo";
+import Loader from "react-loader-spinner";
+
 class Credit extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
+      isLoading: true,
       creditType: "lease",
     };
     this.changeTabHandler = this.changeTabHandler.bind(this);
   }
 
+  componentDidMount() {
+    let promise = new Promise((resolve, reject) => {
+      setTimeout(() => {
+        resolve("data");
+      }, 2000);
+    });
+    promise.then(() => this.setState(state => ({ ...state, isLoading: false })));
+  }
+
   changeTabHandler(creditType) {
-    this.setState(() => ({ creditType: creditType }));
+    this.setState(state => ({ ...state, creditType: creditType }));
   }
 
   render() {
+    if (this.state.isLoading) {
+      return (
+        <Loader
+          className="spinner"
+          visible={this.state.isLoading}
+          type="Oval"
+          color="#8DCDD8"
+          height={100}
+          width={100}
+        />
+      );
+    }
     return (
       <>
         <div className="main">
@@ -24,11 +48,11 @@ class Credit extends React.Component {
             <Tab id="loan" text="loan" changeTabHandler={() => this.changeTabHandler("loan")} />
             <Tab id="lease" text="lease" changeTabHandler={() => this.changeTabHandler("lease")} />
           </div>
-          <Info creditType={this.state.creditType} />
+          <CreditOptions creditType={this.state.creditType} />
         </div>
 
-        <div className="dealer-info">
-          <DealerInfo dealerData={dealerData}/>
+        <div className="summary">
+          <DealerInfo dealerData={dealerData} />
         </div>
       </>
     );

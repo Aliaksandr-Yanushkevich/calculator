@@ -1,15 +1,20 @@
 $border: 1px solid red;
+$textColor: #333333;
+$font: "Saira Semi Condensed", Helvetica, Arial, sans-serif;
 
 * {
   box-sizing: border-box;
+  font-family: $font;
 }
 
 #root {
-  max-width: 900px;
+  max-width: 1024px;
   margin: 0 auto;
   border: $border;
   display: flex;
   flex-direction: row;
+  background-color: #f2f2f2;
+  color: $textColor;
 }
 
 .main {
@@ -17,7 +22,7 @@ $border: 1px solid red;
   font-size: 1.5em;
 }
 
-.dealer-info {
+.summary {
   flex: 1;
   border: $border;
 }
@@ -31,4 +36,16 @@ $border: 1px solid red;
   flex: 1;
   background-color: #83cdd8;
   border-radius: 5px;
+  text-transform: uppercase;
+}
+
+.unit {
+  margin-top: 9px;
+}
+
+.spinner {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
 }

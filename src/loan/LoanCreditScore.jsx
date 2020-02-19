@@ -23,10 +23,10 @@ class LoanCreditScore extends React.Component {
       <div className="loan-item">
         <p className="loan-title">{title}</p>
         <div className="loan-button-wrapper">
-          <LoanButton id="poor" className="term-button" text1="Poor" text2="639 or less" />
-          <LoanButton id="fair" className="term-button" text1="Fair" text2="640 - 699" />
-          <LoanButton id="good" className="term-button" text1="Good" text2="700 - 749" />
-          <LoanButton id="excellent" className="term-button" text1="Excellent" text2="750 - 850" />
+          <LoanButton id="poor" className="loan-button" text1="Poor" text2="639 or less" />
+          <LoanButton id="fair" className="loan-button" text1="Fair" text2="640 - 699" />
+          <LoanButton id="good" className="loan-button" text1="Good" text2="700 - 749" />
+          <LoanButton id="excellent" className="loan-button" text1="Excellent" text2="750 - 850" />
         </div>
       </div>
     );
