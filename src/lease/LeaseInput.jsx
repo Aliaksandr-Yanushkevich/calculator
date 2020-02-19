@@ -1,7 +1,7 @@
 import React from "react";
-import { checkPropTypes } from "prop-types";
+import PropTypes from "prop-types";
 
-class InputSelectLease extends React.Component {
+class LeaseInput extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -49,17 +49,17 @@ class InputSelectLease extends React.Component {
   }
 }
 
-InputSelectLease.propTypes = {
+LeaseInput.propTypes = {
   title: PropTypes.string,
   id: PropTypes.string,
   options: PropTypes.arrayOf(PropTypes.string),
   defaultValue: PropTypes.string,
 };
 
-InputSelectLease.defaultProps = {
+LeaseInput.defaultProps = {
   title: "",
   id: "",
   options: "",
   defaultValue: "",
 };
-export default InputSelectLease;
+export default LeaseInput;

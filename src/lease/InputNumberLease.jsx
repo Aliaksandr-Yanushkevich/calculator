@@ -19,7 +19,7 @@ class InputNumberLease extends React.Component {
   render() {
     const { title, id, min, max, step, defaultValue } = this.props;
     return (
-      <div className="input-lease">
+      <div className="lease-item">
         <p className="input-title">{title}</p>
         <div className="input-wrapper">
           <input

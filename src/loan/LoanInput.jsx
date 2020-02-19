@@ -20,10 +20,10 @@ class LoanInput extends React.Component {
     const { title, unit, id, max, defaultValue } = this.props;
     if (unit === "$") {
       return (
-        <div className="input-loan">
-          <p className="input-loan--title">{title}</p>
-          <div className="input-loan-wrapper">
-            {" " + unit + " "}{" "}
+        <div className="loan-item-input">
+          <p className="loan-title">{title}</p>
+          <div className="loan-input-wrapper">
+          <span className="unit">{unit}</span>
             <input
               id={id}
               className="loan-input"
@@ -37,9 +37,9 @@ class LoanInput extends React.Component {
       );
     } else {
       return (
-        <div className="input-loan">
-          <p className="input-loan--title">{title}</p>
-          <div className="input-loan-wrapper">
+        <div className="loan-item-input">
+          <p className="loan-title">{title}</p>
+          <div className="loan-input-wrapper">
             <input
               id={id}
               className="loan-input"
@@ -48,7 +48,7 @@ class LoanInput extends React.Component {
               max={max}
               defaultValue={defaultValue}
             />
-            {" " + unit + " "}
+            <span className="unit">{unit}</span>
           </div>
         </div>
       );
@@ -58,9 +58,9 @@ class LoanInput extends React.Component {
   withoutUnit() {
     const { title, id, defaultValue } = this.props;
     return (
-      <div className="input-loan">
-        <p className="input-loan--title">{title}</p>
-        <div className="input-loan-wrapper">
+      <div className="loan-item-input">
+        <p className="loan-title">{title}</p>
+        <div className="loan-input-wrapper">
           <input id={id} className="loan-input" type="text" defaultValue={defaultValue} />
         </div>
       </div>

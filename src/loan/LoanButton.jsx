@@ -11,10 +11,10 @@ class LoanButton extends React.Component {
   }
 
   render() {
-    const { id, className, value } = this.props;
+    const { id, className, text1, text2 } = this.props;
     return (
       <button id={id} className={className} type="button">
-        {value}
+        {text1} <br/> {text2}
       </button>
     );
   }
@@ -23,7 +23,12 @@ class LoanButton extends React.Component {
 LoanButton.propTypes = {
   id: PropTypes.string.isRequired,
   className: PropTypes.string.isRequired,
-  value: PropTypes.number.isRequired,
+  text1: PropTypes.string.isRequired,
+  text2: PropTypes.string,
 };
+
+LoanButton.defaultProps = {
+  text2: "",
+}
 
 export default LoanButton;

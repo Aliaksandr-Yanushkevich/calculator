@@ -19,7 +19,7 @@ class InputSelectLease extends React.Component {
   render() {
     const { title, id, options, defaultValue } = this.props;
     return (
-      <div className="input-lease">
+      <div className="lease-item">
         <p className="input-title">{title}</p>
         <div className="input-wrapper">
           <select

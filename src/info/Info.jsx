@@ -1,6 +1,6 @@
 import React from "react";
-import WrapperLease from "../WrapperLease";
-import WrapperLoan from "../WrapperLoan";
+import Lease from "../Lease";
+import Loan from "../Loan";
 
 class Info extends React.Component {
   constructor(props) {
@@ -10,8 +10,8 @@ class Info extends React.Component {
   render() {
     return (
       <div className="info">
-        {this.props.creditType === "loan" && <WrapperLoan />}
-        {this.props.creditType === "lease" && <WrapperLease />}
+        {this.props.creditType === "loan" && <Loan />}
+        {this.props.creditType === "lease" && <Lease />}
       </div>
     );
   }

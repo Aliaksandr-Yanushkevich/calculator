@@ -20,13 +20,13 @@ class LoanCreditScore extends React.Component {
   render() {
     const { title } = this.props;
     return (
-      <div className="term">
-        <p className="term-title">{title}</p>
-        <div className="term-button-wrapper">
-          <LoanButton id="poor" className="term-button" value="Poor 639 or less" />
-          <LoanButton id="fair" className="term-button" value="Fair 640 - 699" />
-          <LoanButton id="good" className="term-button" value="Good 700 - 749" />
-          <LoanButton id="excellent" className="term-button" value="Excellent 750 - 850" />
+      <div className="loan-item">
+        <p className="loan-title">{title}</p>
+        <div className="loan-button-wrapper">
+          <LoanButton id="poor" className="term-button" text1="Poor" text2="639 or less" />
+          <LoanButton id="fair" className="term-button" text1="Fair" text2="640 - 699" />
+          <LoanButton id="good" className="term-button" text1="Good" text2="700 - 749" />
+          <LoanButton id="excellent" className="term-button" text1="Excellent" text2="750 - 850" />
         </div>
       </div>
     );

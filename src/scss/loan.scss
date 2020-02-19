@@ -1,0 +1,33 @@
+$border: 1px solid red;
+$padding: 10px;
+
+* {
+  box-sizing: border-box;
+}
+
+.loan-item {
+    padding: $padding
+}
+
+.loan-button-wrapper {
+  display: flex;
+}
+
+.loan-button {
+  flex: 1;
+}
+
+.loan-item-input {
+    display: flex;
+    justify-content: space-between;
+    padding: $padding
+}
+
+.loan-input-wrapper {
+    width: 25%;
+    display: flex;
+}
+
+.loan-input {
+    width: 100%;
+}
