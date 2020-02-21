@@ -6,19 +6,19 @@ import LeaseInputText from "./lease/LeaseInputText";
 import { getZIP } from "./getZIP";
 
 class Lease extends React.Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      zip: props.zip,
-    };
-  }
+  // constructor(props) {
+  //   super(props);
+  //   this.state = {
+  //     zip: props.zip,
+  //   };
+  // }
 
   render() {
-    const { inputFormData, handleInputFormData, handleCreditScore } = this.props;
+    const { inputFormData, handleInputFormData, handleCreditScore, zip } = this.props;
     return (
       <>
         <div className="lease-container">
-          <LeaseInputText title="Home Zip Code" id="zip" defaultValue={this.state.zip} />
+          <LeaseInputText title="Home Zip Code" id="zip" value={zip} />
           <InputNumberLease
             title="Approx. Credit Score"
             id="creditScore"

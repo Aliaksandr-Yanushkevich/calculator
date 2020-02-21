@@ -2,19 +2,19 @@ import React from "react";
 import PropTypes from "prop-types";
 
 class LeaseInputText extends React.Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      value: 0,
-    };
-    this.handleChange = this.handleChange.bind(this);
-  }
+  // constructor(props) {
+  //   super(props);
+  //   this.state = {
+  //     value: 0,
+  //   };
+  //   this.handleChange = this.handleChange.bind(this);
+  // }
 
-  handleChange(value) {
-    this.setState(() => ({
-      value,
-    }));
-  }
+  // handleChange(value) {
+  //   this.setState(() => ({
+  //     value,
+  //   }));
+  // }
 
   render() {
     const { title, id, unit, max, defaultValue, handleInputFormData, value } = this.props;
