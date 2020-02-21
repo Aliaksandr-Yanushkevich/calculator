@@ -1,4 +1,5 @@
 $border: 1px solid red;
+$font: "Saira Semi Condensed", Helvetica, Arial, sans-serif;
 
 * {
   box-sizing: border-box;
@@ -8,6 +9,7 @@ $border: 1px solid red;
   display: flex;
   flex-wrap: wrap;
   justify-self: center;
+  font-family: $font;
 }
 
 .lease-item {

@@ -17,20 +17,21 @@ class LoanInput extends React.Component {
   }
 
   withUnit() {
-    const { title, unit, id, max, defaultValue } = this.props;
+    const { title, unit, id, max, defaultValue, handleInputFormData, value } = this.props;
     if (unit === "$") {
       return (
         <div className="loan-item-input">
           <p className="loan-title">{title}</p>
           <div className="loan-input-wrapper">
-          <span className="unit">{unit}</span>
+            <span className="unit">{unit}</span>
             <input
               id={id}
               className="loan-input"
               type="text"
               min="0"
               max={max}
-              defaultValue={defaultValue}
+              value={value}
+              onChange={handleInputFormData}
             />
           </div>
         </div>
@@ -47,6 +48,7 @@ class LoanInput extends React.Component {
               min="0"
               max={max}
               defaultValue={defaultValue}
+              onChange={handleInputFormData}
             />
             <span className="unit">{unit}</span>
           </div>

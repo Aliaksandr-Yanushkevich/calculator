@@ -7,28 +7,28 @@ class LoanButton extends React.Component {
     this.state = {
       value: 0,
     };
-    // this.handleChange = this.handleChange.bind(this);
+    // this.handleClick = this.handleClick.bind(this);
   }
 
   render() {
-    const { id, className, text1, text2 } = this.props;
+    const { className, value, isActive, handler } = this.props;
+    const activeClass = isActive ? "choosed-button" : "";
     return (
-      <button id={id} className={className} type="button">
-        {text1} <br/> {text2}
+      <button
+        className={`${className} ${activeClass}`}
+        type="button"
+        onClick={handler}
+        value={value}
+      >
+        {value}
       </button>
     );
   }
 }
 
 LoanButton.propTypes = {
-  id: PropTypes.string.isRequired,
   className: PropTypes.string.isRequired,
-  text1: PropTypes.string.isRequired,
-  text2: PropTypes.string,
+  value: PropTypes.string.isRequired,
 };
-
-LoanButton.defaultProps = {
-  text2: "",
-}
 
 export default LoanButton;

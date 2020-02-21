@@ -8,8 +8,8 @@ class LeaseInput extends React.Component {
       value: 0,
     };
     this.handleChange = this.handleChange.bind(this);
-    this.withUnit = this.withUnit.bind(this);
-    this.withoutUnit = this.withoutUnit.bind(this);
+    // this.withUnit = this.withUnit.bind(this);
+    // this.withoutUnit = this.withoutUnit.bind(this);
   }
 
   handleChange(value) {
@@ -18,8 +18,7 @@ class LeaseInput extends React.Component {
     }));
   }
 
-  withUnit() {
-    const { title, unit, id, max } = this.props;
+  withUnit(title, unit, id, max) {
     return (
       <div className="input-lease">
         <p className="input-title">{title}</p>
@@ -29,8 +28,7 @@ class LeaseInput extends React.Component {
       </div>
     );
   }
-  withoutUnit() {
-    const { title, id } = this.props;
+  withoutUnit(title, id) {
     return (
       <div className="input-lease">
         <p className="input-title">{title}</p>
@@ -43,9 +41,12 @@ class LeaseInput extends React.Component {
 
   render() {
     if (this.props.unit) {
-      return this.withUnit();
+      const { title, unit, id, max } = this.props;
+      return this.withUnit(title, unit, id, max);
+    } else {
+      const { title, id } = this.props;
+    return this.withoutUnit(title, id);
     }
-    return this.withoutUnit();
   }
 }
 

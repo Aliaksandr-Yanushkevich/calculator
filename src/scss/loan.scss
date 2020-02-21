@@ -1,8 +1,13 @@
 $border: 1px solid red;
 $padding: 10px;
+$font: "Saira Semi Condensed", Helvetica, Arial, sans-serif;
 
 * {
   box-sizing: border-box;
+}
+
+.loan-container {
+    font-family: $font;
 }
 
 .loan-item {
@@ -15,6 +20,11 @@ $padding: 10px;
 
 .loan-button {
   flex: 1;
+}
+
+.choosed-button {
+    background-color: #F0BB0C;
+    color: #FFFFFF;
 }
 
 .loan-item-input {

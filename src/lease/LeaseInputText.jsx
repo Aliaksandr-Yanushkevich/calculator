@@ -7,17 +7,17 @@ class LeaseInputText extends React.Component {
     this.state = {
       value: 0,
     };
-    // this.handleChange = this.handleChange.bind(this);
+    this.handleChange = this.handleChange.bind(this);
   }
 
-  // handleChange(value) {
-  //   this.setState(() => ({
-  //     value,
-  //   }));
-  // }
+  handleChange(value) {
+    this.setState(() => ({
+      value,
+    }));
+  }
 
   render() {
-    const { title, id, unit, max, defaultValue } = this.props;
+    const { title, id, unit, max, defaultValue, handleInputFormData, value } = this.props;
     return (
       <div className="lease-item">
         <p className="input-title">{title}</p>
@@ -28,7 +28,9 @@ class LeaseInputText extends React.Component {
             className="lease-input"
             type="text"
             max={max}
-            defaultValue={defaultValue}
+            value={value}
+            // defaultValue={defaultValue}
+            onChange={handleInputFormData}
           />
         </div>
       </div>

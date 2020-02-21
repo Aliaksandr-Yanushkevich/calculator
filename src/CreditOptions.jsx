@@ -8,10 +8,36 @@ class CreditOptions extends React.Component {
   }
 
   render() {
+    const {
+      zip,
+      creditType,
+      handleInputFormData,
+      inputFormData,
+      handleCreditScore,
+      handleTerm,
+      term,
+    } = this.props;
     return (
       <div className="credit-options">
-        {this.props.creditType === "loan" && <Loan />}
-        {this.props.creditType === "lease" && <Lease />}
+        {creditType === "loan" && (
+          <Loan
+            zip={zip}
+            handleInputFormData={handleInputFormData}
+            inputFormData={inputFormData}
+            handleCreditScore={handleCreditScore}
+            handleTerm={handleTerm}
+            term={term}
+          />
+        )}
+        {creditType === "lease" && (
+          <Lease
+            zip={zip}
+            handleInputFormData={handleInputFormData}
+            inputFormData={inputFormData}
+            handleCreditScore={handleCreditScore}
+            handleTerm={handleTerm}
+          />
+        )}
       </div>
     );
   }

@@ -3,30 +3,22 @@ import PropTypes from "prop-types";
 import LoanButton from "./LoanButton";
 
 class LoanCreditScore extends React.Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      value: 0,
-    };
-    this.handleChange = this.handleChange.bind(this);
-  }
-
-  handleChange(value) {
-    this.setState(() => ({
-      value,
-    }));
-  }
-
   render() {
-    const { title } = this.props;
+    const { title, creditScore, handleCreditScore } = this.props;
+    const loanValues = [600, 650, 700, 750, 800, 850, 900];
     return (
       <div className="loan-item">
         <p className="loan-title">{title}</p>
         <div className="loan-button-wrapper">
-          <LoanButton id="poor" className="loan-button" text1="Poor" text2="639 or less" />
-          <LoanButton id="fair" className="loan-button" text1="Fair" text2="640 - 699" />
-          <LoanButton id="good" className="loan-button" text1="Good" text2="700 - 749" />
-          <LoanButton id="excellent" className="loan-button" text1="Excellent" text2="750 - 850" />
+          {loanValues.map(loanValue => {
+            return <LoanButton
+              key={loanValue}
+              className="loan-button"
+              value={loanValue}
+              isActive={creditScore === loanValue}
+              handler={handleCreditScore}
+            />;
+          })}
         </div>
       </div>
     );

@@ -2,15 +2,16 @@ import React from "react";
 import PropTypes from "prop-types";
 // import { changeTabHandler } from "./Credit";
 
-function Tab({ id, text, changeTabHandler }) {
+function Tab({ id, text, changeTabHandler, isActive }) {
   // constructor(props) {
   //   super(props);
   //   this.state = {
   //     creditType: "lease",
   //   };
   // }
+  const activeClass = isActive ? 'active-tab' : '';
   return (
-    <button id={id} className="tabs-button" type="button" onClick={changeTabHandler}>
+    <button id={id} className={`tabs-button ${activeClass}`}  type="button" onClick={changeTabHandler}>
       {text}
     </button>
   );

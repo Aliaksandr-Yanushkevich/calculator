@@ -17,7 +17,7 @@ class InputNumberLease extends React.Component {
   }
 
   render() {
-    const { title, id, min, max, step, defaultValue } = this.props;
+    const { title, id, min, max, step, defaultValue, value, handleCreditScore } = this.props;
     return (
       <div className="lease-item">
         <p className="input-title">{title}</p>
@@ -26,7 +26,8 @@ class InputNumberLease extends React.Component {
             id={id}
             className="lease-input"
             type="number"
-            defaultValue={defaultValue}
+            // defaultValue={defaultValue}
+            value={value}
             min={min}
             step={step}
             max={max}
@@ -34,6 +35,7 @@ class InputNumberLease extends React.Component {
             //   console.log("changed!");
             //   this.handleChange(e.target.value);
             // }}
+            onChange={handleCreditScore}
           />
         </div>
       </div>

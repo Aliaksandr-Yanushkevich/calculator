@@ -1,7 +1,5 @@
 import React from "react";
 import ReactDOM from "react-dom";
-// import PropTypes from "prop-types";
-// import { hot } from "react-hot-loader";
 import "./scss/reset.scss";
 import "./scss/main.scss";
 import "./scss/loan.scss";
