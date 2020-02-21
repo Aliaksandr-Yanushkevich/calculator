@@ -8,7 +8,7 @@
     "clean": "rm -f -r dist",
     "build-dev": "webpack -d --mode development --open",
     "build-prod": "webpack -p",
-    "start": "webpack-dev-server --open --hot --mode development",
+    "start": "webpack-dev-server --open --mode development",
     "analyze": "webpack -p --env.analyze"
   },
   "author": "Aliaksandr Yanushkevich",

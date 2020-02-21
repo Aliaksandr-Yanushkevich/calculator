@@ -1,54 +1,39 @@
 import React from "react";
 import PropTypes from "prop-types";
 
-class LeaseInputText extends React.Component {
-  // constructor(props) {
-  //   super(props);
-  //   this.state = {
-  //     value: 0,
-  //   };
-  //   this.handleChange = this.handleChange.bind(this);
-  // }
-
-  // handleChange(value) {
-  //   this.setState(() => ({
-  //     value,
-  //   }));
-  // }
-
-  render() {
-    const { title, id, unit, max, defaultValue, handleInputFormData, value } = this.props;
-    return (
-      <div className="lease-item">
-        <p className="input-title">{title}</p>
-        <div className="input-wrapper">
-          <span className="unit">{unit}</span>
-          <input
-            id={id}
-            className="lease-input"
-            type="text"
-            max={max}
-            value={value}
-            // defaultValue={defaultValue}
-            onChange={handleInputFormData}
-          />
-        </div>
+function LeaseInputText({ title, id, unit, max, handleInputFormData, value }) {
+  return (
+    <div className="lease-item">
+      <p className="input-title">{title}</p>
+      <div className="input-wrapper">
+        <span className="unit">{unit}</span>
+        <input
+          id={id}
+          className="lease-input"
+          type="text"
+          max={max}
+          value={value}
+          onChange={handleInputFormData}
+        />
       </div>
-    );
-  }
+    </div>
+  );
 }
 
 LeaseInputText.propTypes = {
-  title: PropTypes.string.isRequired,
   id: PropTypes.string.isRequired,
+  title: PropTypes.string,
   unit: PropTypes.string,
-  max: PropTypes.number,
-  defaultValue: PropTypes.number,
+  max: PropTypes.string,
+  handleInputFormData: PropTypes.func,
+  value: PropTypes.string,
 };
 
 LeaseInputText.defaultProps = {
   unit: "",
   max: "",
-  defaultValue: "",
+  handleInputFormData: "",
+  value: "",
+  title: "",
 };
 export default LeaseInputText;

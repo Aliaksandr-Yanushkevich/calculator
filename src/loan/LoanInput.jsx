@@ -4,16 +4,6 @@ import PropTypes from "prop-types";
 class LoanInput extends React.Component {
   constructor(props) {
     super(props);
-    this.state = {
-      value: 0,
-    };
-    this.handleChange = this.handleChange.bind(this);
-  }
-
-  handleChange(value) {
-    this.setState(() => ({
-      value: value,
-    }));
   }
 
   withUnit() {
@@ -36,25 +26,24 @@ class LoanInput extends React.Component {
           </div>
         </div>
       );
-    } else {
-      return (
-        <div className="loan-item-input">
-          <p className="loan-title">{title}</p>
-          <div className="loan-input-wrapper">
-            <input
-              id={id}
-              className="loan-input"
-              type="text"
-              min="0"
-              max={max}
-              defaultValue={defaultValue}
-              onChange={handleInputFormData}
-            />
-            <span className="unit">{unit}</span>
-          </div>
-        </div>
-      );
     }
+    return (
+      <div className="loan-item-input">
+        <p className="loan-title">{title}</p>
+        <div className="loan-input-wrapper">
+          <input
+            id={id}
+            className="loan-input"
+            type="text"
+            min="0"
+            max={max}
+            defaultValue={defaultValue}
+            onChange={handleInputFormData}
+          />
+          <span className="unit">{unit}</span>
+        </div>
+      </div>
+    );
   }
 
   withoutUnit() {
@@ -79,8 +68,12 @@ class LoanInput extends React.Component {
 
 LoanInput.propTypes = {
   id: PropTypes.string.isRequired,
-  className: PropTypes.string.isRequired,
   value: PropTypes.number.isRequired,
+  title: PropTypes.string.isRequired,
+  unit: PropTypes.string.isRequired,
+  max: PropTypes.number,
+  defaultValue: PropTypes.number,
+  handleInputFormData: PropTypes.func,
 };
 
 export default LoanInput;

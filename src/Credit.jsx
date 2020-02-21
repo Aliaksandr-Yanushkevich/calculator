@@ -1,10 +1,10 @@
 import React from "react";
+import Loader from "react-loader-spinner";
 import Tab from "./Tab";
 import CreditOptions from "./CreditOptions";
 import dealerData from "./info/dealerData";
 import DealerInfo from "./info/DealerInfo";
-import Loader from "react-loader-spinner";
-import { getZIP } from "./getZIP";
+import getZIP from "./getZIP";
 
 class Credit extends React.Component {
   constructor(props) {
@@ -17,7 +17,7 @@ class Credit extends React.Component {
         downPayment: 0,
         creditScore: 750,
       },
-      term: 24
+      term: 24,
     };
     this.changeTabHandler = this.changeTabHandler.bind(this);
     this.handleInputFormData = this.handleInputFormData.bind(this);
@@ -26,7 +26,7 @@ class Credit extends React.Component {
   }
 
   componentDidMount() {
-    let promise = new Promise((resolve, reject) => {
+    const promise = new Promise(resolve => {
       setTimeout(() => {
         resolve();
       }, 1000);
@@ -36,11 +36,11 @@ class Credit extends React.Component {
         this.setState(state => ({
           ...state,
           isLoading: false,
-          zip: zip,
+          zip,
         }));
         if (sessionStorage.config === undefined) {
           const data = {
-            zip: zip,
+            zip,
             creditScore: 750,
             term: 24,
             mileAge: 12000,
@@ -52,28 +52,30 @@ class Credit extends React.Component {
           sessionStorage.setItem("config", config);
         }
       });
-      // this.setState(state => ({ ...state, isLoading: false }));
     });
   }
 
   changeTabHandler(creditType) {
-    this.setState(state => ({ ...state, creditType: creditType }));
+    this.setState(state => ({ ...state, creditType }));
   }
 
   handleInputFormData(e) {
-    const value = e.target.value;
-    const id = e.target.id;
+    const { value } = e.target;
+    const { id } = e.target;
     this.setState(state => ({ ...state, inputFormData: { ...state.inputFormData, [id]: value } }));
   }
 
   handleCreditScore(e) {
     const value = Number(e.target.value);
-    this.setState(state => ({ ...state, inputFormData: {...state.inputFormData, creditScore: value} }));
+    this.setState(state => ({
+      ...state,
+      inputFormData: { ...state.inputFormData, creditScore: value },
+    }));
   }
 
   handleTerm(e) {
     const value = Number(e.target.value);
-    this.setState(state => ({ ...state, term: value}));
+    this.setState(state => ({ ...state, term: value }));
   }
 
   render() {

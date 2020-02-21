@@ -1,46 +1,25 @@
 import React from "react";
 import PropTypes from "prop-types";
 
-class InputNumberLease extends React.Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      value: 0,
-    };
-    this.handleChange = this.handleChange.bind(this);
-  }
-
-  handleChange(value) {
-    this.setState(() => ({
-      value,
-    }));
-  }
-
-  render() {
-    const { title, id, min, max, step, defaultValue, value, handleCreditScore } = this.props;
-    return (
-      <div className="lease-item">
-        <p className="input-title">{title}</p>
-        <div className="input-wrapper">
-          <input
-            id={id}
-            className="lease-input"
-            type="number"
-            // defaultValue={defaultValue}
-            value={value}
-            min={min}
-            step={step}
-            max={max}
-            // onChange={e => {
-            //   console.log("changed!");
-            //   this.handleChange(e.target.value);
-            // }}
-            onChange={handleCreditScore}
-          />
-        </div>
+function InputNumberLease(props) {
+  const { title, id, min, max, step, value, handleCreditScore } = props;
+  return (
+    <div className="lease-item">
+      <p className="input-title">{title}</p>
+      <div className="input-wrapper">
+        <input
+          id={id}
+          className="lease-input"
+          type="number"
+          value={value}
+          min={min}
+          step={step}
+          max={max}
+          onChange={handleCreditScore}
+        />
       </div>
-    );
-  }
+    </div>
+  );
 }
 
 InputNumberLease.propTypes = {
@@ -49,7 +28,8 @@ InputNumberLease.propTypes = {
   min: PropTypes.number,
   max: PropTypes.number,
   step: PropTypes.number,
-  defaultValue: PropTypes.number,
+  value: PropTypes.number,
+  handleCreditScore: PropTypes.func,
 };
 
 InputNumberLease.defaultProps = {
@@ -58,6 +38,7 @@ InputNumberLease.defaultProps = {
   min: "",
   max: "",
   step: "",
-  defaultValue: "",
+  value: "",
+  handleCreditScore: "",
 };
 export default InputNumberLease;

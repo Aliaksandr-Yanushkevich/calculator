@@ -1,41 +1,20 @@
 import React from "react";
 import PropTypes from "prop-types";
 
-class InputSelectLease extends React.Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      value: 0,
-    };
-    this.handleChange = this.handleChange.bind(this);
-  }
-
-  handleChange(value) {
-    this.setState(() => ({
-      value,
-    }));
-  }
-
-  render() {
-    const { title, id, options, defaultValue } = this.props;
-    return (
-      <div className="lease-item">
-        <p className="input-title">{title}</p>
-        <div className="input-wrapper">
-          <select
-            id={id}
-            className="lease-input"
-            // type="select"
-            defaultValue={defaultValue}
-          >
-            {options.map(element => {
-              return <option value={element}>{element}</option>;
-            })}
-          </select>
-        </div>
+function InputSelectLease(props) {
+  const { title, id, options, defaultValue } = props;
+  return (
+    <div className="lease-item">
+      <p className="input-title">{title}</p>
+      <div className="input-wrapper">
+        <select id={id} className="lease-input" defaultValue={defaultValue}>
+          {options.map(element => {
+            return <option value={element}>{element}</option>;
+          })}
+        </select>
       </div>
-    );
-  }
+    </div>
+  );
 }
 
 InputSelectLease.propTypes = {

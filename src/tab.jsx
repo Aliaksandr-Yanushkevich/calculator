@@ -1,17 +1,15 @@
 import React from "react";
 import PropTypes from "prop-types";
-// import { changeTabHandler } from "./Credit";
 
 function Tab({ id, text, changeTabHandler, isActive }) {
-  // constructor(props) {
-  //   super(props);
-  //   this.state = {
-  //     creditType: "lease",
-  //   };
-  // }
-  const activeClass = isActive ? 'active-tab' : '';
+  const activeClass = isActive ? "active-tab" : "";
   return (
-    <button id={id} className={`tabs-button ${activeClass}`}  type="button" onClick={changeTabHandler}>
+    <button
+      id={id}
+      className={`tabs-button ${activeClass}`}
+      type="button"
+      onClick={changeTabHandler}
+    >
       {text}
     </button>
   );
@@ -20,10 +18,15 @@ function Tab({ id, text, changeTabHandler, isActive }) {
 Tab.propTypes = {
   id: PropTypes.string,
   text: PropTypes.string,
+  changeTabHandler: PropTypes.func,
+  isActive: PropTypes.bool,
 };
 
 Tab.defaultProps = {
   id: "",
   text: "",
+  changeTabHandler: "",
+  isActive: "",
 };
+
 export default Tab;

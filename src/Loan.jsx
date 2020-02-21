@@ -1,4 +1,5 @@
 import React from "react";
+import PropTypes from "prop-types";
 import LoanTerm from "./loan/LoanTerm";
 import LoanInput from "./loan/LoanInput";
 import LoanCreditScore from "./loan/LoanCreditScore";
@@ -13,10 +14,11 @@ class Loan extends React.Component {
 
   render() {
     const { handleInputFormData, inputFormData, handleCreditScore, handleTerm, term } = this.props;
+    const { zip } = this.state;
     return (
       <>
         <div className="loan-container">
-          <LoanTerm title="Term (Months)" handleTerm={handleTerm} term={term}/>
+          <LoanTerm title="Term (Months)" handleTerm={handleTerm} term={term} />
           <LoanInput
             title="Trade-in-Value"
             id="tradeIn"
@@ -39,12 +41,30 @@ class Loan extends React.Component {
             creditScore={inputFormData.creditScore}
             handleCreditScore={handleCreditScore}
           />
-          <LoanInput title="Home ZIP-Code" id="zip" defaultValue={this.state.zip} />
+          <LoanInput title="Home ZIP-Code" id="zip" defaultValue={zip} />
           <LoanInput title="Estimated APR" id="apr" unit="%" defaultValue={0} />
         </div>
       </>
     );
   }
 }
+
+Loan.propTypes = {
+  handleInputFormData: PropTypes.func,
+  inputFormData: PropTypes.objectOf(PropTypes.string),
+  handleCreditScore: PropTypes.func,
+  handleTerm: PropTypes.func,
+  term: PropTypes.string,
+  zip: PropTypes.string,
+};
+
+Loan.defaultProps = {
+  handleInputFormData: "",
+  inputFormData: "",
+  handleCreditScore: "",
+  handleTerm: "",
+  term: "",
+  zip: "",
+};
 
 export default Loan;
